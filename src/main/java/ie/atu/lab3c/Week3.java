@@ -38,16 +38,16 @@ public class Week3
                 ans = num1 * num2;
                 break;
             case "divide":
-                if(num2 == 0)
+                switch (num2)
                 {
-                    return "ERROR: Can't divide by zero";
+                    case 0:
+                        String error = "ERROR: Can't divide by zero";
+                        return error;
+                    default:
+                        ans = num1 / num2;
+                        break;
                 }
-                else
-                {
-                    ans = num1 / num2;
-                    break;
-                }
-
+                break;
             default:
                 return "ERROR";
         }
