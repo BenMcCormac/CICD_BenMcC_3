@@ -23,8 +23,17 @@ public class Week3
         return "Name: " + name + "\nAge: " + age;
     }
     @GetMapping("/calculate")
-    public String getResult(@RequestParam String name, int age)
+    public String getResult(@RequestParam  int num1, int num2, String operation)
     {
-        return "Name: " + name + "\nAge: " + age;
+        int ans;
+        if(operation=="add")
+        {
+            ans = num1 + num2;
+            return "" + ans;
+        }
+        else
+        {
+            return "ERROR: " + operation;
+        }
     }
 }
