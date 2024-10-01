@@ -25,15 +25,33 @@ public class Week3
     @GetMapping("/calculate")
     public String getResult(@RequestParam  int num1, int num2, String operation)
     {
-        int ans;
-        if(operation=="add")
+        int ans = 0;
+        switch (operation)
         {
-            ans = num1 + num2;
-            return "" + ans;
+            case "add":
+                ans = num1 + num2;
+                break;
+            case "subtract":
+                ans = num1 - num2;
+                break;
+            case "multiply":
+                ans = num1 * num2;
+                break;
+            case "divide":
+                if(num2 == 0)
+                {
+                    return "ERROR: Can't divide by zero";
+                }
+                else
+                {
+                    ans = num1 / num2;
+                    break;
+                }
+
+            default:
+                return "ERROR";
         }
-        else
-        {
-            return "ERROR: " + operation;
-        }
+
+        return "" + ans;
     }
 }
